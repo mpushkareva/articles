@@ -109,17 +109,61 @@ DenseNet TestError:
 **Tags**: Structured pruning, ImageNet.
 
 
-### Name
+### ThiNet: A Filter Level Pruning Method for Deep Neural Network Compression
 
-**Year**: 
+**Year**: 2017
 
-**Authors**:
+**Authors**: Jian-Hao Luo, Jianxin Wu, and Weiyao Lin
 
-**Gist**:
+**Gist**: The authors propose the method of iterative channel pruning. Their method includes choosing weak channels in a layer $i$ based on input values in a layer $i+1$. The subset of weak channels in layer $i$ is defined by a greedy algorithm. Then weak channels are removed from layer $i$. The remaining channels are multiplied by weights given by minimization of construction loss between $i+1$ output before pruning and after pruning. Afterwards, the network is finetuned. Such operation is performed for each layer.
+
+<img src="images/thinet_method.png" alt="isolated" width="300"/>
 
 **Results**:
 
-**Tags**:
+<img src="images/thinet_result_1.png" alt="isolated" width="300"/>
+
+<img src="images/thinet_result_2.png" alt="isolated" width="300"/>
+
+**Tags**: VGG, ResNet, ImageNet, Iterative pruning, Structured Pruning
+
+### RETHINKING THE VALUE OF NETWORK PRUNING
+
+**Year**: 2018
+
+**Authors**: Zhuang Liu, Mingjie Sun, Tinghui Zhou, Gao Huang, Trevor Darrell
+
+**Gist**: The authours claims that common beliefs about pruning are not necessarily true:
+- it is believed that starting with training a large, over-parameterized network is important. 
+- both the pruned architecture and its associated weights are believed to be essential for obtaining the final efficient model.  
+
+Instead, their results suggest that the value of automatic pruning algorithms may lie in identifying efficient structures and performing implicit architecture search, rather than selecting “important” weights.
+It is suggested to compare existing pruning tehniques and models, which have the same pruning rate, but trained from scratch. These models (Scratch-E and Scratch-B) are trained on the same number of epochs and trained with the same FLOPS amount correspondingly.
+
+**Results**:
+
+<img src="images/rethinking_1.png" alt="isolated" width="300"/>
+
+<img src="images/rethinking_2.png" alt="isolated" width="300"/>
+
+**Tags** Structured pruning, ImageNet, CIFAR, VGG, ResNet.
+
+### Structured Pruning Adapters
+
+**Year**: 2023
+
+**Authors**: Lukas Hedegaard, Aman Alok, Juby Jose, Alexandros Iosifidis
+
+**Gist**: 
+The authors proposed Structured Pruning Adapters (SPAs) as an alternative to fine-tuning during structured pruning. Instead of updating all model weights, SPAs consist of prunable lightweight add-on modules, which are learned in place of the original weights but can be fused with them at runtime to obtain the same computational enhancements as regular structured pruning with fine-tuning. The SPA was applied to transfer-learning tasks.
+
+<img src="images/pruning_adapters_method.png" alt="isolated" width="300"/>
+
+**Results**:
+
+<img src="images/pruning_adapters_result.png" alt="isolated" width="300"/>
+
+**Tags**: CIFAR, ResNet, Weight Pruning, Gradient Pruning, Taylor Pruning, LRP, Structural Pruning
 
 ### Name
 
