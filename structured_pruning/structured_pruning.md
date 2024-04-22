@@ -165,6 +165,98 @@ The authors proposed Structured Pruning Adapters (SPAs) as an alternative to fin
 
 **Tags**: CIFAR, ResNet, Weight Pruning, Gradient Pruning, Taylor Pruning, LRP, Structural Pruning
 
+### WHAT MATTERS IN THE STRUCTURED PRUNING OF GENERATIVE LANGUAGE MODELS?
+
+**Year**: 2023
+
+**Authors**: Michael Santacroce, Yelong Shen, Zixin Wen, Yuanzhi Li
+
+**Gist**:
+It was found that existing pruning methods have the same performance as the best established methods for decoder-only LLMs.
+Th authours propose an empirical analysis framework for structured pruning that relies on two fundamental measures of redundancy: sensitivity and uniqueness. The authors provide Globally Unique Movement (GUM) method, that aims to maximize both sensitivity and uniqueness by pruning network components. It was found that distillation largely closes the gaps between different methods, further narrowing the advantage of best methods over random pruning.
+
+**Results**:
+
+<img src="images/gen_len_res_1.png" alt="isolated" width="300"/>
+
+<img src="images/gen_len_res_2.png" alt="isolated" width="300"/>
+
+**Tags**: Structural pruning, LLM, decoder, pruning metrics.
+
+### LLM.int8(): 8-bit Matrix Multiplication for Transformers at Scale
+
+**Year**: 2022
+
+**Authors**: Tim Dettmers, Mike Lewis† Younes Belkada, Luke Zettlemoyer
+
+
+**Gist**: The authors develop a procedure for Int8 matrix multiplication for feed-forward and attention projection layers in transformers. They first use vector-wise quantization with separate normalization constants for each inner product in the matrix multiplication, to quantize most of the features. However, for the emergent outliers, the authors also include a new mixed-precision decomposition scheme, which isolates the outlier feature dimensions into a 16-bit matrix multiplication while still more than 99.9% of values are multiplied in 8-bit.
+
+
+<img src="images/llm_8_method.png" alt="isolated" width="300"/>
+
+**Results**: 
+
+<img src="images/llm_8_results.png" alt="isolated" width="300"/>
+
+**Tags**: Quantization, 8-int, 16-bit multiplication.
+
+
+### Name
+
+**Year**: 
+
+**Authors**:
+
+**Gist**: The article proposes a novel criterion for the iterative pruning of convolutional neural networks (CNNs) using the explanation method LRP, which links two previously disconnected research areas. LRP assigns relevance scores to individual network units, allowing for efficient compression rates by removing units with low scores without sacrificing predictive performance. Experiments demonstrate that the LRP criterion achieves favorable compression performance across various datasets, especially in transfer learning settings with small target datasets. Additionally, LRP can be used for visual interpretation of the model, providing intuitive relevance heatmaps to explain individual decisions and potentially avoid undesired phenomena during the pruning process.
+
+The relevance on a forward pass:
+
+<img src="images/explaining_method_1.png" alt="isolated" width="100"/>
+
+The relevance on a backward pass:
+
+<img src="images/explaining_method_2.png" alt="isolated" width="100"/>
+
+**Results**:
+
+Results with fine-tuning.
+
+<img src="images/explaining_res_2.png" alt="isolated" width="400"/>
+
+Results w/o finetuning.
+
+<img src="images/explaining_res_1.png" alt="isolated" width="400"/>
+
+
+**Tags**: Pruning, Layer-wise Relevance Propagation (LRP), Iterative pruning, VGG, ResNet, ILSVRC, Cats and Dogs,
+
+### To prune, or not to prune: exploring the efficacy of pruning for model compression
+
+**Year**: 2017
+
+**Authors**: Michael H. Zhu, Suyog Gupta
+
+**Gist**: The authors demonstrate that large-sparse models outperform comparably-sized small-dense models across a diverse set of neural network architectures. They also present a gradual pruning technique based on weight magnitude.
+
+**Results**:
+
+<img src="images/prune_not_prune_res.png" alt="isolated" width="400"/>
+
+**Tags**: Unstructured pruning, gradual pruning, iterative pruning, LSTM.
+
+### Name
+
+**Year**: 
+
+**Authors**:
+
+**Gist**:
+
+**Results**:
+
+**Tags**:
+
 ### Name
 
 **Year**: 
