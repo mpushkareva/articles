@@ -38,6 +38,24 @@ But there is clarification in the previous article of this team https://arxiv.or
 
 **Tags**:
 
+### 11. LLM.int8(): 8-bit Matrix Multiplication for Transformers at Scale
+
+**Year**: 2022
+
+**Authors**: Tim Dettmers, Mike Lewis† Younes Belkada, Luke Zettlemoyer
+
+
+**Gist**: The authors develop a procedure for Int8 matrix multiplication for feed-forward and attention projection layers in transformers. They first use vector-wise quantization with separate normalization constants for each inner product in the matrix multiplication, to quantize most of the features. However, for the emergent outliers, the authors also include a new mixed-precision decomposition scheme, which isolates the outlier feature dimensions into a 16-bit matrix multiplication while still more than 99.9% of values are multiplied in 8-bit.
+
+
+<img src="images/llm_8_method.png" alt="isolated" width="300"/>
+
+**Results**: 
+
+<img src="images/llm_8_results.png" alt="isolated" width="300"/>
+
+**Tags**: Quantization, 8-int, 16-bit multiplication.
+
 ### Name
 
 **Year**: 

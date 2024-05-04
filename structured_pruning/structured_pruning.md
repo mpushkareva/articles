@@ -1,6 +1,6 @@
 # Structured pruning
 
-### Adaptive Activation-based Structured Pruning
+### 1. Adaptive Activation-based Structured Pruning
 
 **Year**: 2023
 
@@ -17,7 +17,7 @@ The authors propose adaptive pruning algorthm. It is suggested to  iteratively r
 
 **Tags**: Iterative pruning, structured pruning, ResNet, VGG, MobileNet, CIFAR, Tiny-ImageNet
 
-### ON THE ROLE OF STRUCTURED PRUNING FOR NEURAL NETWORK COMPRESSION
+### 2. ON THE ROLE OF STRUCTURED PRUNING FOR NEURAL NETWORK COMPRESSION
 
 **Year**: 2021
 
@@ -31,7 +31,7 @@ The authors propose adaptive pruning algorthm. It is suggested to  iteratively r
 
 **Tags**: Structured pruning, instructured pruning, SeReNe, LOBSTER, VGG, ResNet, CIFAR, ImageNet
 
-### Parameterized Structured Pruning for Deep Neural
+### 3. Parameterized Structured Pruning for Deep Neural
 Networks
 
 **Year**: 2019
@@ -48,10 +48,10 @@ Authours consider only column, filter and layer pruning. They suggest to add par
 <img src="images/parametrized_structured_res.png" alt="isolated" width="300"/>
 
 
-**Tags**: (~) Iterative pruning, CIFAR, structured pruning, ResNet, DenseNet
+**Tags**: (~) Iterative pruning, CIFAR, structured pruning, ResNet, DenseNet, CIFAR
 
 
-### Revisiting Loss Modelling for Unstructured Pruning
+### 4. Revisiting Loss Modelling for Unstructured Pruning
 
 **Year**: 2020
 
@@ -70,7 +70,7 @@ Authours consider only column, filter and layer pruning. They suggest to add par
 **Tags**: Unstructured pruning, MNIST, CIFAR, VGG, Pruning criterions
 
 
-### A Closer Look at Structured Pruning for Neural Network Compression
+### 5. A Closer Look at Structured Pruning for Neural Network Compression
 
 **Year**: 2018
 
@@ -90,7 +90,7 @@ DenseNet TestError:
 **Tags**: Fisher pruning, structured pruning, DenseNet
 
 
-### Group Fisher Pruning for Practical Network Compression
+### 6. Group Fisher Pruning for Practical Network Compression
 
 **Year**: 2021
 
@@ -109,7 +109,7 @@ DenseNet TestError:
 **Tags**: Structured pruning, ImageNet.
 
 
-### ThiNet: A Filter Level Pruning Method for Deep Neural Network Compression
+### 7. ThiNet: A Filter Level Pruning Method for Deep Neural Network Compression
 
 **Year**: 2017
 
@@ -127,7 +127,7 @@ DenseNet TestError:
 
 **Tags**: VGG, ResNet, ImageNet, Iterative pruning, Structured Pruning
 
-### RETHINKING THE VALUE OF NETWORK PRUNING
+### 8. RETHINKING THE VALUE OF NETWORK PRUNING
 
 **Year**: 2018
 
@@ -148,7 +148,7 @@ It is suggested to compare existing pruning tehniques and models, which have the
 
 **Tags** Structured pruning, ImageNet, CIFAR, VGG, ResNet.
 
-### Structured Pruning Adapters
+### 9. Structured Pruning Adapters
 
 **Year**: 2023
 
@@ -165,7 +165,7 @@ The authors proposed Structured Pruning Adapters (SPAs) as an alternative to fin
 
 **Tags**: CIFAR, ResNet, Weight Pruning, Gradient Pruning, Taylor Pruning, LRP, Structural Pruning
 
-### WHAT MATTERS IN THE STRUCTURED PRUNING OF GENERATIVE LANGUAGE MODELS?
+### 10. WHAT MATTERS IN THE STRUCTURED PRUNING OF GENERATIVE LANGUAGE MODELS?
 
 **Year**: 2023
 
@@ -183,30 +183,12 @@ Th authours propose an empirical analysis framework for structured pruning that 
 
 **Tags**: Structural pruning, LLM, decoder, pruning metrics.
 
-### LLM.int8(): 8-bit Matrix Multiplication for Transformers at Scale
 
-**Year**: 2022
+### 11. Pruning by explaining: A novel criterion for deep neural network pruning
 
-**Authors**: Tim Dettmers, Mike Lewis† Younes Belkada, Luke Zettlemoyer
+**Year**: 2021
 
-
-**Gist**: The authors develop a procedure for Int8 matrix multiplication for feed-forward and attention projection layers in transformers. They first use vector-wise quantization with separate normalization constants for each inner product in the matrix multiplication, to quantize most of the features. However, for the emergent outliers, the authors also include a new mixed-precision decomposition scheme, which isolates the outlier feature dimensions into a 16-bit matrix multiplication while still more than 99.9% of values are multiplied in 8-bit.
-
-
-<img src="images/llm_8_method.png" alt="isolated" width="300"/>
-
-**Results**: 
-
-<img src="images/llm_8_results.png" alt="isolated" width="300"/>
-
-**Tags**: Quantization, 8-int, 16-bit multiplication.
-
-
-### Name
-
-**Year**: 
-
-**Authors**:
+**Authors**: Seul-Ki Yeom, Philipp Seegerer, Sebastian Lapuschkin, Alexander Binder, Simon Wiedemann, Klaus-Robert M¨uller, Wojciech Samek
 
 **Gist**: The article proposes a novel criterion for the iterative pruning of convolutional neural networks (CNNs) using the explanation method LRP, which links two previously disconnected research areas. LRP assigns relevance scores to individual network units, allowing for efficient compression rates by removing units with low scores without sacrificing predictive performance. Experiments demonstrate that the LRP criterion achieves favorable compression performance across various datasets, especially in transfer learning settings with small target datasets. Additionally, LRP can be used for visual interpretation of the model, providing intuitive relevance heatmaps to explain individual decisions and potentially avoid undesired phenomena during the pruning process.
 
@@ -231,7 +213,7 @@ Results w/o finetuning.
 
 **Tags**: Pruning, Layer-wise Relevance Propagation (LRP), Iterative pruning, VGG, ResNet, ILSVRC, Cats and Dogs,
 
-### To prune, or not to prune: exploring the efficacy of pruning for model compression
+### 12. To prune, or not to prune: exploring the efficacy of pruning for model compression
 
 **Year**: 2017
 
@@ -245,26 +227,172 @@ Results w/o finetuning.
 
 **Tags**: Unstructured pruning, gradual pruning, iterative pruning, LSTM.
 
+### 13. THE LOTTERY TICKET HYPOTHESIS: FINDING SPARSE, TRAINABLE NEURAL NETWORKS
+
+**Year**: 2019
+
+**Authors**: Jonathan Frankle, Michael Carbin
+
+**Gist**: The Lottery Ticket Hypothesis. A randomly-initialized, dense neural network contains a subnetwork that is initialized such that—when trained in isolation — it can match the test accuracy of the original network after training for at most the same number of iterations. Returning to initial weights (before training) is crutial.
+
+**Results**: 
+
+<img src="images/lottery_results.png" alt="isolated" width="400"/>
+
+**Tags**: Unstructured pruning, iterative pruning, ResNet-18, VGG-16
+
+
+### 14. COMPARING REWINDING AND FINE-TUNING IN NEURAL NETWORK PRUNING
+
+**Year**: 2020
+
+**Authors**: Alex Renda and Jonathan Frankle and Michael Carbin
+
+**Gist**: In this paper, we compare fine-tuning to alternative
+retraining techniques. Weight rewinding (as proposed by Frankle et al. (2019)),
+rewinds unpruned weights to their values from earlier in training and retrains
+them from there using the original training schedule. Learning rate rewinding
+(which we propose) trains the unpruned weights from their final values using
+the same learning rate schedule as weight rewinding. Both rewinding techniques
+outperform fine-tuning, forming the basis of a network-agnostic pruning algorithm
+that matches the accuracy and compression ratios of several more network-specific
+state-of-the-art techniques.
+
+**Results**:
+
+<img src="images/rewinding_results.png" alt="isolated" width="400"/>
+
+**Tags**: ResNet, CIFAR-10, ImageNet, GNMT, WMT16, Structured and Unstructured pruning, One shot pruning, Iterative pruning
+
+### 15. Movement Pruning: Adaptive Sparsity by Fine-Tuning
+
+**Year**: 2020
+
+**Authors**: Victor Sanh and Thomas Wolf and Alexander M. Rush
+
+**Gist**:  
+
+Updating score function by forward-backward pass, mask for pruning is based on score-metrix.
+
+The authors propose iterative gradient based movement pruning. The pruning mask filter Top_s weights or weights with score S > \tau. Score functionis updated during transfer learning. Pruning mask are applied during transfer learning too. The pruning technique was applied to transformer-based network.
+
+**Results**:
+
+<img src="images/movement_res.png" alt="isolated" width="400"/>
+
+**Tags**: Unstructuredd pruning, iterative pruning.
+
+
+### 16. Pruning Convolutional Neural Networks for Resource Efficient Transfer Learning
+
+**Year**: 2016
+
+**Authors**: Pavlo Molchanov and Stephen Tyree and Tero Karras and Timo Aila and Jan Kautz
+
+**Gist**:  
+The authors find: 
+1) CNNs may be successfully pruned by iteratively removing the least important parameters—feature maps in this case—according to heuristic selection criteria; 
+2) a Taylor expansion-based criterion demonstrates significant improvement over other criteria; 
+3) per-layer normalization of the criterion is important to obtain global scaling.
+
+**Results**: 
+
+<img src="images/transfer_res.png" alt="isolated" width="400"/>
+
+**Tags**: Structureal pruning, Iterative pruning, Taylor, AlexNet, recurrent 3D-CNN, Flowers, Birds, VGG-16, ImageNet, fine-tuning.
+
+### 17. Compressing BERT: Studying the Effects of Weight Pruning on Transfer Learning
+
+**Year**: 2020
+
+**Authors**: Mitchell A. Gordon and Kevin Duh and Nicholas Andrews
+
+**Gist**:  
+We find that pruning affects transfer learning in three broad regimes. Low levels of pruning (30-40%) do not affect pre-training loss or transfer to down- stream tasks at all. Medium levels of pruning increase the pre-training loss and prevent use- ful pre-training information from being trans- ferred to downstream tasks. High levels of pruning additionally prevent models from fit- ting downstream datasets, leading to further degradation. Finally, we observe that fine- tuning BERT on a specific task does not im- prove its prunability. We conclude that BERT can be pruned once during pre-training rather than separately for each task without affecting performance.
+
+“Information deletion” - prune network, but unfreeze zeroed weights while transfer learning.
+
+**Results**:
+
+<img src="images/compress_bert.png" alt="isolated" width="400"/>
+
+**Tags**: Iterative pruning, magnitude-based pruning, local pruning, structured pruning, BERT, GLUE
+
+### 18. PackNet: Adding Multiple Tasks to a Single Network by Iterative Pruning
+
+**Year**: 2017
+
+**Authors**: Arun Mallya and Svetlana Lazebnik
+
+**Gist**:  
+In this work, we have presented a method to “pack” multiple tasks into a single network with minimal loss of performance on prior tasks. The proposed method allows us to modify all layers of a network and influence a large number
+
+of filters and features, which is necessary to obtain accuracies comparable to those of individually trained networks for each task. 
+
+**Results**:
+
+<img src="images/packnet.png" alt="isolated" width="400"/>
+
+**Tags**: Unstructured pruning, structured pruning (poor results), VGG-16, ResNet-50, DenseNet.
+
+
+### 19. Parameter-Efficient Transfer Learning with Diff Pruning
+
+**Year**: 2020
+
+**Authors**: Demi Guo and Alexander M. Rush and Yoon Kim
+**Gist**:  
+The authors want to minimize the number of parameters for the new task. The number of parameters of initial network remains the same. Additional vector, which is trained while transfer learning, is pruned by L1 regularization.
+
+**Results**:
+
+<img src="images/diff_pruning.png" alt="isolated" width="400"/>
+
+**Tags**: Unstructured pruning, structured pruning, BERT, GLUE, transfer learning.
+
+
+
 ### Name
 
 **Year**: 
 
-**Authors**:
+**Authors**: 
+**Gist**:  
 
-**Gist**:
-
-**Results**:
-
-**Tags**:
-
-### Name
-
-**Year**: 
-
-**Authors**:
-
-**Gist**:
 
 **Results**:
 
-**Tags**:
+<img src="images/movement_res.png" alt="isolated" width="400"/>
+
+**Tags**: 
+
+
+
+- Tocrh Pruning https://github.com/VainF/Torch-Pruning?tab=readme-ov-file
+- Diff-Pruning: Structural Pruning for Diffusion Models https://github.com/VainF/Diff-Pruning?tab=readme-ov-file
+- LLM-Pruner: On the Structural Pruning of Large Language Models
+- SlimSlam https://github.com/czg1225/SlimSAM?tab=readme-ov-file
+- DeepCache: Accelerating Diffusion Models for Free https://github.com/horseee/DeepCache
+- Sanity Checking pruning https://github.com/JingtongSu/sanity-checking-pruning
+- https://www.semanticscholar.org/reader/ee53c9480132fc0d09b1192226cb2c460462fd6d
+- NISP https://arxiv.org/pdf/1711.05908.pdf
+- Google https://arxiv.org/pdf/1803.03635.pdf
+- LC compression https://github.com/UCMerced-ML/LC-model-compression?tab=readme-ov-file
+- https://faculty.ucmerced.edu/mcarreira-perpinan/research/LC-model-compression.html
+- what is a state of the art https://arxiv.org/pdf/2003.03033.pdf
+
+## Elicit state of the art 
+ - Activation-Based Pruning of Neural Networkshttps://www.semanticscholar.org/paper/Activation-Based-Pruning-of-Neural-Networks-Ganguli-Chong/454b1f68fca309090663ee5569f4309753655cc6
+ - Automatic Block-wise Pruning with Auxiliary Gating Structures for Deep Convolutional Neural Networks https://www.semanticscholar.org/paper/Automatic-Block-wise-Pruning-with-Auxiliary-Gating-Si-Qi/d8501702d71ede96b8b1352747f403ead78e7817 
+ - Pruning Compact ConvNets for Efficient Inference
+ - An End-to-End Network Pruning Pipeline with Sparsity Enforcement https://www.semanticscholar.org/paper/An-End-to-End-Network-Pruning-Pipeline-with-Dogariu/c64e1e4e669951d529a7f69ddb96b34ac5a71120
+ - Fast as CHITA: Neural Network Pruning with Combinatorial Optimization https://www.semanticscholar.org/paper/Fast-as-CHITA%3A-Neural-Network-Pruning-with-Benbaki-Chen/0c40850c24bf543b14ceb44124db1f4cf88211f3
+ - Neural Networks at a Fraction with Pruned Quaternions https://www.semanticscholar.org/paper/Neural-Networks-at-a-Fraction-with-Pruned-Iqbal-Mishra/0092b76176dbd19527f595c2cf1cea8e1126be9c
+ - An End-to-End Network Pruning Pipeline with Sparsity Enforcement https://www.semanticscholar.org/paper/An-End-to-End-Network-Pruning-Pipeline-with-Dogariu/c64e1e4e669951d529a7f69ddb96b34ac5a71120
+- Neural Network Pruning by Gradient Descent https://www.semanticscholar.org/paper/Neural-Network-Pruning-by-Gradient-Descent-Zhang-Tao/938ce6c3a262cda0dd11a49570c92ab157fbfb13
+
+
+- Prospect Pruning: Finding Trainable Weights at Initialization using Meta-Gradients https://www.semanticscholar.org/paper/Prospect-Pruning%3A-Finding-Trainable-Weights-at-Alizadeh-Tailor/be1210aa1ddbe7d6a654045a5aabbdc2a4827e6f
+- When to Prune? A Policy towards Early Structural Pruning https://www.semanticscholar.org/paper/When-to-Prune-A-Policy-towards-Early-Structural-Shen-Molchanov/4b4cf6cc67f23635449e59222c055dfd87ab34bd
+- Pruning Neural Networks at Initialization: Why are We Missing the Mark? https://www.semanticscholar.org/paper/Pruning-Neural-Networks-at-Initialization%3A-Why-are-Frankle-Dziugaite/0932abfd0fb90e8a28f7bd195633c9891bfd7ecb
+- "Understanding Robustness Lottery": A Comparative Visual Analysis of Neural Network Pruning Approaches https://www.semanticscholar.org/paper/%22Understanding-Robustness-Lottery%22%3A-A-Comparative-Li-Liu/95cb0e5e14679189209d489f8f20145dbec10a2a
