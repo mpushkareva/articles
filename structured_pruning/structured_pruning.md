@@ -351,9 +351,201 @@ The authors want to minimize the number of parameters for the new task. The numb
 **Tags**: Unstructured pruning, structured pruning, BERT, GLUE, transfer learning.
 
 
+### 20. Activation-Based Pruning of Neural Networks
 
-### Name
+**Year**: 2024
 
+**Authors**: Tushar Ganguli, and Edwin K. P. Chong
+
+**Gist**: Activation-based pruning for fully-conected networks. The technique is based on he number of times each neuron is activated during model training. Proposed algorithm was compared with magnitued-based pruning and low-rank matrix approximation based on PCA.
+
+
+**Results**:
+
+<img src="images/activation_based_res1.png" alt="isolated" width="400"/>
+<img src="images/activation_based_res2.png" alt="isolated" width="400"/>
+
+**Tags**: MNIST, FashionMNIST, local pruning, global pruning, structures, unstructured pruning, 
+
+
+### 21. Automatic Block-wise Pruning with Auxiliary Gating Structures for Deep Convolutional Neural Networks
+
+**Year**: 2022
+
+**Authors**: 
+**Gist**:  In this paper authors proposed an automatic block-wise pruning schedule for CNNs using gating modules (from SkipNet paper). 
+
+<img src="images/block_wise_method.png" alt="isolated" width="400"/>
+
+
+**Results**:
+
+<img src="images/block_wise_res.png" alt="isolated" width="400"/>
+
+**Tags**: Structural pruning, block pruning, gated pruning, pruning schedule, ResNet-32, Resnet-56, ResNet-110, CIFAR-10, CIFAR-100.
+
+
+
+### 22. PRUNING COMPACT CONVNETS FOR EFFICIENT INFERENCE
+
+**Year**: 2023
+
+**Authors**: Sayan Ghosh, Karthik Prasad, Xiaoliang Dai, Peizhao Zhang, Bichen Wu, Graham Cormode, Peter Vajda
+
+**Gist**:  
+In this paper, we have investigated the problem of improving on the current state-of-the-art FLOPs vs. performance trade-off for FBNets which have been pre-optimized by NAS (Neural Architecture Search). We have employed network pruning techniques, and our results demonstrate that we can further improve on performance over FBNetV3 at a given FLOPs target through global as well as uniform magnitude-based pruning. This happens not only for relatively over-parameterized networks such as FBNetV3G, but also smaller networks such as FBNetV3A which have lower computational complexity. On average, the GPU-hours incurred during pruning is about ∼ 4× less than that consumed by a full-scale NAS.
+
+
+**Results**:
+
+<img src="images/pruning_convnets_res.png" alt="isolated" width="400"/>
+
+**Tags**: ImageNet, FBNet, unstructured pruning.
+
+
+
+### 23. An End-to-End Network Pruning Pipeline with Sparsity Enforcement
+
+**Year**: 2023
+
+**Authors**: 
+**Gist**:  The authours use the ZerO initialization (from paper "Zero initialization: Initializing neural networks with only zeros and ones") and learn sparsity matrix (matrix is a probablity of zeroing the weight. Also regularizations of the sparsity matrices are added in a loss). On a post-training phase, where sparcity matrices are fixed, it is proposed to use label smoothing, soft activations and soft skip-connections to improve training of the sparse model.
+
+
+**Results**: 
+
+<img src="images/sparsity enforcement_res.png" alt="isolated" width="400"/>
+
+**Tags**: Unstructured pruning, fine-tuning, VGG-16, MLP, MNIST, CIFAR-10.
+
+
+### 24. SNIP: Single-shot Network Pruning based on Connection Sensitivity
+
+**Year**: 2018
+
+**Authors**: Namhoon Lee and Thalaiyasingam Ajanthan and Philip H. S. Torr
+
+**Gist**:  The authors presented SNIP that prunes irrelevant connections for a given task at single-shot prior to training. SNIP identifies the least important connections by calculating  normed gradients with respect to the connections on a batch.
+
+
+**Results**:
+
+<img src="images/SNIP_res.png" alt="isolated" width="400"/>
+
+**Tags**: Unstructured pruning, gradient-based pruning, sensetivity, LeNet, MNIST, Fashion-MNIST, foresight pruning.
+
+
+### 25. PICKING WINNING TICKETS BEFORE TRAINING BY PRESERVING GRADIENT FLOW
+
+**Year**: 2020
+
+**Authors**: Chaoqi Wang, Guodong Zhang, Roger Grosse
+
+**Gist**:  
+We propose Gradient Signal Preservation (GraSP) that aims to preserve the gradient flow through the network after pruning. It can also be interpreted as aligning the large eigenvalues of the Neural Tangent Kernel with the targets. GraSP is able to prune the weights of a network at initialization
+
+
+**Results**:
+
+<img src="images/grasp_res.png" alt="isolated" width="400"/>
+
+**Tags**: Unstructured pruning, VGG-16, ResNet-50, ImageNet, ResNet-32, CIFAR-10, CIFAR-100, gradient-based pruning, pruning without fine-tuning, foresight pruning. 
+
+### 26. Pruning neural networks without any data by iteratively conserving synaptic flow
+
+**Year**: 2020
+
+**Authors**: Hidenori Tanaka and Daniel Kunin and Daniel L. K. Yamins and Surya Ganguli
+**Gist**:  
+In this paper, we developed a unifying theoretical framework that explains why existing single-shot pruning algorithms at initialization suffer from layer-collapse (layer without weights). We applied our framework to elucidate how iterative magnitude pruning  overcomes layer-collapse to identify winning lottery tickets at initialization. We designed a new data-agnostic pruning algorithm, SynFlow, that provably avoids layer-collapse and reaches Maximal Critical Compression.
+
+**Results**: 
+
+<img src="images/synflow_res.png" alt="isolated" width="400"/>
+
+**Tags**: Unstructured pruning, VGG-11, VGG-16, ResNet-50, Tiny ImageNet, ResNet-18, WideResNet-18, CIFAR-10, CIFAR-100, gradient-based pruning, pruning without fine-tuning, foresight pruning.
+
+
+### 27. Training Your Sparse Neural Network Better with Any Mask
+**Year**: 2022
+
+**Authors**: Ajay Jaiswal and Haoyu Ma and Tianlong Chen and Ying Ding and Zhangyang Wang
+
+**Gist**:  We provide a curated and easily adaptable training toolkit (ToST) for training ANY sparse mask from scratch: “ghost” skip-connection (injecting additional non-existent skip-connections in the sparse masks),“ghost” soft neurons (changing the ReLU neurons into smoother activation functions such as Swish (Ramachandran et al., 2017) and Mish (Misra, 2019)), as well as modifying initialization and labels.
+
+
+**Results**: 
+
+<img src="images/tost_res.png" alt="isolated" width="400"/>
+
+**Tags**: Unstructured pruning, foresight pruning, ResNet-32, ResNet-50, CIFAR-10, CIFAR-100, TinyImageNet. 
+
+### 28. Training Sparse Neural Networks
+**Year**: 2016
+
+**Authors**: Suraj Srinivas and Akshayvarun Subramanya and R. Venkatesh Babu
+**Gist**:  
+We introduce additional gate variables to perform parameter selection and show that this is equivalent to using a spike-and-slab prior.
+
+<img src="images/training_sparse_nn_method.png" alt="isolated" width="400"/>
+
+**Results**:
+
+<img src="images/training_sparse_nn_res.png" alt="isolated" width="400"/>
+
+**Tags**: Unstructured pruning, spike-and-slab prior, LeNet-5, VGG-16, AlexNet, MNIST, ILSVRC-2012
+
+### 29. Fast as CHITA: Neural Network Pruning with Combinatorial Optimization
+
+**Year**: 2023
+
+**Authors**: Riade Benbaki and Wenyu Chen and X. Meng and Hussein Hazimeh and Natalia Ponomareva and Zhe Zhao and Rahul Mazumder
+**Gist**:  
+In this work we have presented an efficient network pruning
+framework CHITA , which is based on a novel, hessian-free l0-constrained regression formulation and combina-
+torial optimization techniques. Single-stage method: CHITA. Multi-stage CHITA++ (iterative pruning).
+
+<img src="images/chita_method.png" alt="isolated" width="400"/>
+
+**Results**:
+
+<img src="images/chita_results.png" alt="isolated" width="400"/>
+
+**Tags**: Unstructured pruning, iterative pruning, one-stage pruning, MLP, MNIST, ResNet20, MobileNetV1, CIFAR-10, ImageNet.
+
+### 30. Neural Networks at a Fraction with Pruned Quaternions
+
+**Year**: 2023
+
+**Authors**: Sahel Mohammad Iqbal and Subhankar Mishra
+
+**Gist**:  The authots propose to use quaternions instead of real weights and Hamilton multiplication that reduces the number of weights in comparance with the real-networks. Additionnaly, authors compared real pruned models and quaternoin pruned models. 
+
+<img src="images/quaternion_method.png" alt="isolated" width="400"/>
+
+**Results**:
+
+<img src="images/quaternion_results.png" alt="isolated" width="400"/>
+
+**Tags**: Unstructured pruning, quaternions, MNIST, CIFAR-10, CIFAR-100, Conv-4, Conv-6, Lenet-300-100.
+
+### 31. Prospect Pruning: Finding Trainable Weights at Initialization using Meta-Gradients
+
+**Year**: 2022
+
+**Authors**: 
+**Gist**:  In this paper, we propose Prospect Pruning (ProsPr), a  pruning-at-init method that learns from the first few steps of optimization which parameters to prune. ProsPr uses meta-gradients by backpropagating through the first few model updates in order to estimate the effect the initial pruning parameters have on the loss after a few gradient descent steps.
+
+<img src="images/prospr_method.png" alt="isolated" width="400"/>
+
+**Results**:
+
+<img src="images/prospr_res.png" alt="isolated" width="400"/>
+
+**Tags**: Unstructured pruning, foresight pruning, pruning-at-init, CIFAR-10, CIFAR-100, TinyImageNet, ResNet-20, VGG-16, ResNet-18
+
+
+### 
 **Year**: 
 
 **Authors**: 
@@ -365,7 +557,6 @@ The authors want to minimize the number of parameters for the new task. The numb
 <img src="images/movement_res.png" alt="isolated" width="400"/>
 
 **Tags**: 
-
 
 
 - Tocrh Pruning https://github.com/VainF/Torch-Pruning?tab=readme-ov-file
@@ -382,17 +573,9 @@ The authors want to minimize the number of parameters for the new task. The numb
 - what is a state of the art https://arxiv.org/pdf/2003.03033.pdf
 
 ## Elicit state of the art 
- - Activation-Based Pruning of Neural Networkshttps://www.semanticscholar.org/paper/Activation-Based-Pruning-of-Neural-Networks-Ganguli-Chong/454b1f68fca309090663ee5569f4309753655cc6
- - Automatic Block-wise Pruning with Auxiliary Gating Structures for Deep Convolutional Neural Networks https://www.semanticscholar.org/paper/Automatic-Block-wise-Pruning-with-Auxiliary-Gating-Si-Qi/d8501702d71ede96b8b1352747f403ead78e7817 
- - Pruning Compact ConvNets for Efficient Inference
- - An End-to-End Network Pruning Pipeline with Sparsity Enforcement https://www.semanticscholar.org/paper/An-End-to-End-Network-Pruning-Pipeline-with-Dogariu/c64e1e4e669951d529a7f69ddb96b34ac5a71120
- - Fast as CHITA: Neural Network Pruning with Combinatorial Optimization https://www.semanticscholar.org/paper/Fast-as-CHITA%3A-Neural-Network-Pruning-with-Benbaki-Chen/0c40850c24bf543b14ceb44124db1f4cf88211f3
- - Neural Networks at a Fraction with Pruned Quaternions https://www.semanticscholar.org/paper/Neural-Networks-at-a-Fraction-with-Pruned-Iqbal-Mishra/0092b76176dbd19527f595c2cf1cea8e1126be9c
- - An End-to-End Network Pruning Pipeline with Sparsity Enforcement https://www.semanticscholar.org/paper/An-End-to-End-Network-Pruning-Pipeline-with-Dogariu/c64e1e4e669951d529a7f69ddb96b34ac5a71120
-- Neural Network Pruning by Gradient Descent https://www.semanticscholar.org/paper/Neural-Network-Pruning-by-Gradient-Descent-Zhang-Tao/938ce6c3a262cda0dd11a49570c92ab157fbfb13
-
 
 - Prospect Pruning: Finding Trainable Weights at Initialization using Meta-Gradients https://www.semanticscholar.org/paper/Prospect-Pruning%3A-Finding-Trainable-Weights-at-Alizadeh-Tailor/be1210aa1ddbe7d6a654045a5aabbdc2a4827e6f
 - When to Prune? A Policy towards Early Structural Pruning https://www.semanticscholar.org/paper/When-to-Prune-A-Policy-towards-Early-Structural-Shen-Molchanov/4b4cf6cc67f23635449e59222c055dfd87ab34bd
 - Pruning Neural Networks at Initialization: Why are We Missing the Mark? https://www.semanticscholar.org/paper/Pruning-Neural-Networks-at-Initialization%3A-Why-are-Frankle-Dziugaite/0932abfd0fb90e8a28f7bd195633c9891bfd7ecb
 - "Understanding Robustness Lottery": A Comparative Visual Analysis of Neural Network Pruning Approaches https://www.semanticscholar.org/paper/%22Understanding-Robustness-Lottery%22%3A-A-Comparative-Li-Liu/95cb0e5e14679189209d489f8f20145dbec10a2a
+- https://arxiv.org/abs/2301.00774
