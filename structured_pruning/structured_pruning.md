@@ -545,14 +545,221 @@ torial optimization techniques. Single-stage method: CHITA. Multi-stage CHITA++ 
 **Tags**: Unstructured pruning, foresight pruning, pruning-at-init, CIFAR-10, CIFAR-100, TinyImageNet, ResNet-20, VGG-16, ResNet-18
 
 
+@article{Frankle2020PruningNN,
+  title={Pruning Neural Networks at Initialization: Why are We Missing the Mark?},
+  author={Jonathan Frankle and Gintare Karolina Dziugaite and Daniel M. Roy and Michael Carbin},
+  journal={ArXiv},
+  year={2020},
+  volume={abs/2009.08576},
+  url={https://api.semanticscholar.org/CorpusID:221802286}
+}
+### 32. Pruning Neural Networks at Initialization: Why are We Missing the Mark?
+
+**Year**: 2020
+
+**Authors**: Jonathan Frankle and Gintare Karolina Dziugaite and Daniel M. Roy and Michael Carbin
+
+**Gist**:  
+The authors demonstrate that pruning techniques applied during initialization result in inferior performance compared to magnitude-based pruning post-training. They found that shuffling layers during pruning-at-init methods doesn't impact the final accuracy of the pruned model; instead, it helps determine the appropriate pruning rate for each layer. Additionally, weight reinitialization doesn't affect model performance. Interestingly, using the least important weights doesn't harm the performance of GRASP, indicating that the heuristic doesn't function as anticipated. However, in SNIP and SynFlow, utilizing the least important weights significantly alters model accuracy, aligning with expectations
+
+**Results**:
+
+<img src="images/prune_init_res.png" alt="isolated" width="400"/>
+
+**Tags**: Unstructured pruning, meta-analysis, pruning-at-init methods, ResNet-20, ResNet-18, VGG-16, ResNet-50, TinyImageNet, ImageNet, CIFAR-10.
+
+### 33. When to Prune? A Policy towards Early Structural Pruning
+
+**Year**: 2021
+
+**Authors**: Maying Shen and Pavlo Molchanov and Hongxu Yin and Josу Manuel Flvarez
+
+**Gist**:  We have introduced an approach to automatically deter-
+mine when pruning can be performed during training. 
+1. On each step before pruning we find the most important weights and calculate Early Pruning Indicator (EPI) for sub-network (that we will get if we prune on this step). Then EPI is compared with EPI on previous steps and with set threshold $\tau$, if $EPI_k > EPI_{k-r} \forall r \in [1,5]$ and $EPI_k > \tau$, go to prune phase.
+
+<img src="images/esp_method.png" alt="isolated" width="300"/>
+
+2. Prune
+3. Fine-tune. 
+
+**Results**: 
+
+<img src="images/esp_result.png" alt="isolated" width="400"/>
+
+**Tags**: Unstructured pruning, pruning-at-init methods, prune-aware training, ImageNet, ResNet-50, ResNet-34, MobileNet-v1.
+
+### 34. “Understanding Robustness Lottery”: A Geometric Visual Comparative Analysis of Neural Network Pruning Approaches
+
+**Year**: 2023
+
+**Authors**: Zhimin Li, Shusen Liu, Xin Yu, Kailkhura Bhavya, Jie Cao, James Daniel Diffenderfer
+
+**Gist**:  
+In this work, we introduced three geometrically inspired metrics in the neural network latent space for a compar- ative study of how widely adopted (and state-of-the-art) model pruning approaches impact neural network models’ internal representation and performance. The proposed vi- sualization system is able to highlight the key differences between pruning techniques that are unknown to ML re- searchers. One potential limitation of the current system is the scalability of the parallel coordinate view. As for more com- plex datasets, such as Imagenet (1000 classes), visualizing all class directions at the same is not practical.
+
+**Results**:
+
+<img src="images/understanding_robastness.png" alt="isolated" width="400"/>
+
+**Tags**: Data Corruption, unstructured pruning, magnitude-based pruning, lottery ticket, gradient-based pruning.
+
+### 35. Structural Pruning for Diffusion Models
+**Year**: 2023
+
+**Authors**: Gongfan Fang, Xinyin Ma, Xinchao Wang∗
+**Gist**: Summary of the reviewer from openreview: This work introduces a structural pruning method for diffusion models, called Diff-pruning. The authors leverage Taylor expansion on each term of the ELBO loss as the creteria to decide the pruned weights. By calculating the error of the final image induced by the pruning at timestep t and discussing about the effect of converged loss on the higher order terms of the Taylor expansion, this work manually drop the pruning creteria of timesteps near noise by setting a threshold  related to the relative loss. Experiments compare the performance of the proposed pruning method with other common pruning methods, as well as training from scratch.
+
+<img src="images/diff_pruning_method.png" alt="isolated" width="400"/>
+
+**Results**:
+
+<img src="images/diff_pruning_res.png" alt="isolated" width="400"/>
+
+**Tags**: CIFAR, CelebA, LSUN Church, LSUN Bedroom, ImageNet-1K, Denoising Diffusion Probability Models (DDPMs), Latent Diffusion Models (LDMs), Multiply-Add Accumulation (MACs), Frechet Inception Distance (FID), Structural Similarity (SSIM), Structural pruning.
+
+### 36. Using Cooperative Game Theory to Prune Neural Networks
+**Year**: 2023
+
+**Authors**: Mauricio Diaz-Ortiz Jr, Benjamin Kempinski, Daphne Cornelisse, Yoram Bachrach, Tal Kachman
+
+**Gist**:  The authors introduce a method called Game Theory Assisted Pruning (GTAP). GTAP is based on eliminating neurons in the network based on an estimation of their joint impact on the prediction quality through game theoretic solutions. Specifically, they use a power index akin to the Shapley value or Banzhaf index, tailored using a procedure similar to Dropout (commonly used to tackle overfitting problems in machine learning).
+
+<ins>Top-n Pruning</ins>, a non-iterative procedure where we estimate the power indices and select the $r$ neurons with the heighest power indices (where $r$ is the target pruned network size)
+
+<ins>Iterated pruning</ins>:
+1. Calculate uncertanty using dropout method.
+2. Compute theoretic power indeces for neurons.
+3. Prune the lowest power indexes -> Stage 2.
+
+<ins>Iterated building</ins>: 
+1. An empty network an initial power index estimator
+2. Perform multiple iterations where in each iteration we add the $d$ neurons of highest power indices
+3. Recompute power indices under the assumption that the retained neurons are always included.
+
+**Results**:
+
+<img src="images/cooperative_res1.png" alt="isolated" width="200"/>
+
+<img src="images/cooperative_res2.png" alt="isolated" width="200"/>
+
+**Tags**: Structured pruning, Game Theory, Iterative pruning, non-iterative pruning, LeNet, MNIST, twitter topic classification task, emotion classification task CARER
+
+### 37. Pruning Neural Networks via Coresets and Convex Geometry: Towards No Assumptions
+**Year**: 2022
+
+**Authors**: Murad Tukan, Loay Mualem, Alaa Maalouf
+
+**Gist**:  
+Coreset-based pruning technique that hinges upon a combination of
+tools from convex geometry. The main improvement is that the coreset is (training) data-independent and assumes a single assumption on the models weights.
+
+**Results**: 
+
+<img src="images/coreset_res.png" alt="isolated" width="400"/>
+
+**Tags**: VGG-16, VGG-19, CIFAR-10, LeNet, MNIST, ResNet-56, ImageNet, structured pruning, non-iterative pruning.
+
+
+### 38. Impact of Disentanglement on Pruning Neural Networks
+**Year**: 2023
+
+**Authors**: Carl Shneider, Peyman Rostami, Anis Kacem, Nilotpal Sinha, Abd El Rahman Shabayek, and Djamila Aouad
+
+**Gist**:  The preliminary results presented in this work are inconclusive and only roughly suggest that for a certain value of β in the Beta-VAE framework, the latent space implicitly becomes sufficiently disentangled to allow for pruning to more easily discard useless information for the task of classification. Increasing the number of epochs over which pruning is performed as well as the number of latent dimensions may improve these results. Furthermore, having
+ground truth disentanglement labels together with an appropriately
+selected metric to directly measure the degree of disentanglement
+for the task of classification is expected to yield more robust results
+
+<img src="images/disentangle_method.png" alt="isolated" width="300"/>
+
+
+**Results**: 
+<img src="images/disentangle_res.png" alt="isolated" width="400"/>
+
+**Tags**: Beta-VAE, MNIST, CIFAR-10, Magnitude-based pruning
+
+### 39. Lost in Pruning: The Effects of Pruning Neural Networks beyond Test Accuracy
+
+**Year**: 2021
+
+**Authors**: Lucas Liebenwein,  Cenk Baykal, Brandon Carter, David Gifford, Daniela Rus
+
+**Gist**:  
+- Authors proposed functional distance metrics for classification-based neural networks and explore the functional similarities between pruned and unpruned networks. Excess loss.
+
+<img src="images/lost_method_1.png" alt="isolated" width="200"/>
+
+- The concept of prune potential, the maximum prune ratio at which a pruned network maintains performance, to estimate network overparameterization, finding it lower in challenging tasks.
+
+<img src="images/lost_method_2.png" alt="isolated" width="200"/>
+
+
+**Results**: 
+Pruned models are functionally similar to their uncompressed counterparts, but prune potential varies with task difficulty, decreasing as the task becomes harder. This highlights the importance of task-specific evaluation metrics beyond test accuracy before deploying pruned networks and offers insights into network overparameterization in deep learning.
+
+<img src="images/lost_res.png" alt="isolated" width="400"/>
+
+
+**Tags**: pruning evaluation framework, prune potential, ResNet-18, ImageNet, weight pruning, filter pruning, structured pruning, CIFAR-10.
+
+
+### 40. Globally Soft Filter Pruning For Efficient Convolutional Neural Networks
+
+**Year**: 2018
+
+**Authors**: Ke Xu, Xiaoyun Wang, Qun Jia, Jianjing An, Dong Wang
+
+**Gist**: From OpenReview: This paper proposes a method for pruning CNNs, which considers all filters globally. It normalizes the weights of a filter within a layer and globally across all layers. To incorporate the effect of the data set, the authors additionally compute the normalized gradients and multiply the weight term with it. The third concept that the authors introduce is the idea of accumulating this measure of the importance of a filter for one entire epoch, before pruning.
+
+<img src="images/globally_soft_method.png" alt="isolated" width="400"/>
+
+
+**Results**: 
+<img src="images/globally_soft_res.png" alt="isolated" width="400"/>
+
+**Tags**: filter pruning, structured pruning, saliency score, MNIST, CIFAR-10, ImageNet, VGG-16, ResNet-18, ResNet-34.
+
+
+### 41. Pruning Convolutional Neural Networks for Resource Efficient Inference 
+
+**Year**: 2016
+
+**Authors**: Pavlo Molchanov, Stephen Tyree, Tero Karras, Timo Aila, Jan Kautz
+
+**Gist**:  From OpenReview: This paper presents a novel way of pruning filters from convolutional neural networks. The proposed methods is derived from the first order Taylor expansion of the loss change while pruning a particular unit. This leads to simple weighting of the unit activation with its gradient w.r.t. loss function and performs better than simply using the activation magnitude as the heuristic for pruning. This intuitively makes sense, as we would like to remove not only the filters with low activation, but also filters where the incorrect activation value would not have small influence on the target loss.
+
+
+**Results**:
+
+<img src="images/molchanov_16_res.png" alt="isolated" width="400"/>
+
+**Tags**: AlexNet, VGG-16, ImageNet, R3DCNN, Birds-200, Flowers-102, structured pruning, filter pruning.
+
+### 42.
+**Year**: 
+
+**Authors**: 
+
+**Gist**:  
+
+
+**Results**: 
+
+<img src="images/movement_res.png" alt="isolated" width="400"/>
+
+**Tags**: 
+
+
 ### 
 **Year**: 
 
 **Authors**: 
+
 **Gist**:  
 
 
-**Results**:
+**Results**: 
 
 <img src="images/movement_res.png" alt="isolated" width="400"/>
 
@@ -574,8 +781,7 @@ torial optimization techniques. Single-stage method: CHITA. Multi-stage CHITA++ 
 
 ## Elicit state of the art 
 
-- Prospect Pruning: Finding Trainable Weights at Initialization using Meta-Gradients https://www.semanticscholar.org/paper/Prospect-Pruning%3A-Finding-Trainable-Weights-at-Alizadeh-Tailor/be1210aa1ddbe7d6a654045a5aabbdc2a4827e6f
-- When to Prune? A Policy towards Early Structural Pruning https://www.semanticscholar.org/paper/When-to-Prune-A-Policy-towards-Early-Structural-Shen-Molchanov/4b4cf6cc67f23635449e59222c055dfd87ab34bd
-- Pruning Neural Networks at Initialization: Why are We Missing the Mark? https://www.semanticscholar.org/paper/Pruning-Neural-Networks-at-Initialization%3A-Why-are-Frankle-Dziugaite/0932abfd0fb90e8a28f7bd195633c9891bfd7ecb
 - "Understanding Robustness Lottery": A Comparative Visual Analysis of Neural Network Pruning Approaches https://www.semanticscholar.org/paper/%22Understanding-Robustness-Lottery%22%3A-A-Comparative-Li-Liu/95cb0e5e14679189209d489f8f20145dbec10a2a
 - https://arxiv.org/abs/2301.00774
+- **To read one more time: Provable Benefits of Overparameterization in Model Compression: From Double Descent to *Pruning* *Neural* *Networks***
+- Read one more time: Rethinking the smaller-norm-less-informative assumption in channel pruning of convolutional layers
