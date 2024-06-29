@@ -604,7 +604,7 @@ In this work, we introduced three geometrically inspired metrics in the neural n
 
 **Tags**: Data Corruption, unstructured pruning, magnitude-based pruning, lottery ticket, gradient-based pruning.
 
-### 35. Structural Pruning for Diffusion Models
+### 35. Diff-Pruning: Structural Pruning for Diffusion Models
 **Year**: 2023
 
 **Authors**: Gongfan Fang, Xinyin Ma, Xinchao Wang∗
@@ -736,22 +736,227 @@ Pruned models are functionally similar to their uncompressed counterparts, but p
 
 **Tags**: AlexNet, VGG-16, ImageNet, R3DCNN, Birds-200, Flowers-102, structured pruning, filter pruning.
 
-### 42.
-**Year**: 
+### 42. STRUCTURED PRUNING OF CNNS AT INITIALIZATION
 
-**Authors**: 
+**Year**: 2023
 
-**Gist**:  
+**Authors**: Yaohui Cai, Weizhe Hua, Hongzheng Chen, Fengyu Li, G. Edward Suh, Christopher De Sa, Zhiru Zhang
+
+**Gist**: OpenReview: This paper firstly proposes a metric called SynExp that is an expectation of the SynFlow values over the weights and mask distributions. According to the authors, SynExp is a constant and independent of the pruning granularity so the pruning granularity may not have an influence on the trained models' accuracy. Later on, the authors propose two techniques, PreCrop and PreConfig, that prune the model structurally and adjust the models' parameters, respectively. PreCrop solves a convex optimization problem that results in an optimal structure, while PreCrop optimizes the models' structures in place. Experiments show the empirical performance of the proposed techniques.
 
 
 **Results**: 
 
-<img src="images/movement_res.png" alt="isolated" width="400"/>
+<img src="images/struct_init_res.png" alt="isolated" width="400"/>
 
-**Tags**: 
+**Tags**: Structured pruning, pruning at initialization, ResNet-34, MobileNetv2, EfficientNetB0, CIFAR-10, ImageNet.
 
+
+### 43. VTC-LFC: Vision Transformer Compression with Low-Frequency Components
+
+**Year**: 2022
+
+**Authors**: Zhenyu Wang, Hao Luo, Pichao WANG, Feng Ding, Fan Wang, Hao Li
+
+**Gist**:  OpenReview: This paper introduces a model compression approach based on low-frequency components for vision transformers. Channel pruning based on low-frequency sensitivity, token pruning based on low-frequency energy, along with bottom-up cascade pruning scheme effectively reduce the model complexity while maintaining high model accuracy.
+
+<img src="images/vtc_lfc_method_1.png" alt="isolated" width="400"/>
+<img src="images/vtc_lfc_method_2.png" alt="isolated" width="400"/>
+
+**Results**: 
+
+<img src="images/vtc_lfc_res.png" alt="isolated" width="400"/>
+
+**Tags**: structured pruning, ViT (vision transformer), DeiT-Tiny, DeiT-Small, DeiT-Base, ImageNet, NViT, EViT, CIFAR-10, ImageNet-Real
+
+
+### 44. LLM-Pruner: On the Structural Pruning of Large Language Models
+
+**Year**: 2023
+
+**Authors**: Xinyin Ma, Gongfan Fang, Xinchao Wang
+
+**Gist**: OpenReview: This paper present a method for LLM pruning, where some parameters are discarded by sacrificing the downstream accuracy. The proposed method, LLM-Pruner, adopts structural pruning that selectively removes non-critical coupled structures based on gradient information. By investigating different pruning settings with different LLMs, this paper finds the proposed method can help reduce the computations while retaining the zero-shot capabilities.
+
+
+**Results**: 
+
+<img src="images/llm_pruner_res_1.png" alt="isolated" width="400"/>
+
+
+<img src="images/llm_pruner_res_2.png" alt="isolated" width="400"/>
+
+**Tags**: Structured pruning, LLM, LLaMA-7b, Vicuna, ChatGLM-6B, datasets: WikiText2, PTB, HellaSwag, PIQA, BoolQ, WinoGrande, ARC-e, ARC-c, OBQA
+
+
+### 45. SlimSAM: 0.1% Data Makes Segment Anything Slim
+
+**Year**: 2023
+
+**Authors**: Zigeng Chen, Gongfan Fang, Xinyin Ma, and Xinchao Wang
+
+**Gist**:  
+In this paper, the authors present a SAM compression method, Slim-SAM, which achieves superior performance with minimal training data. Slimming framework carefully prunes and distills decoupled model structures in an alternating fashion, minimizing disruptions to the original model and enabling the intermediate feature alignment by consistent dimensionality. Furthermore, the proposed disturbed Taylor importance estimation rectifies the misalignment between pruning objectives and training targets, thus boosting post-distillation after pruning.
+
+**Results**: 
+
+<img src="images/slimsam_res_1.png" alt="isolated" width="400"/>
+<img src="images/slimsam_res_2.png" alt="isolated" width="400"/>
+
+**Tags**: segment-anything model (SAM), structured pruning, knowledge distillation, SA-1B dataset, MIoU.
+
+
+### 46. Sanity-Checking Pruning Methods: Random Tickets can Win the Jackpot
+
+**Year**: 2020
+
+**Authors**: Jingtong Su, Yihang Chen, Tianle Cai, Tianhao Wu, Ruiqi Gao, Liwei Wang, Jason D. Lee
+
+**Gist**:  The authors propose several sanity check methods on unstructured pruning methods that test whether the data used in the pruning step and whether the architecture of the pruned subnetwork are essential for the final performance. They find that “initial tickets” hardly exploit any information from data, because randomly changing the preserved weights of the subnetwork obtained by these methods layerwise does not affect the final performance. They propose zero-shot data-independent pruning method called “random tickets” which outperforms or attains similar performance compared to initial tickets. They also identify one existing pruning method that passes the sanity checks, and hybridize the random tickets with this method to propose a new method called “hybrid tickets”, which achieves further improvement. 
+
+
+**Results**: 
+
+<img src="images/sanity_res_1.png" alt="isolated" width="400"/>
+<img src="images/sanity_res_2.png" alt="isolated" width="400"/>
+
+**Tags**: Unstructured pruning, pruning-at-init, ResNet32, VGG-16, CIFAR-10, CIFAR-100, Tiny-Imagenet.
+
+### 47. NISP: Pruning Networks using Neuron Importance Score Propagation
+
+**Year**: 2017
+
+**Authors**: Ruichi Yu, Ang Li, Chun-Fu Chen, Jui-Hsin Lai, Vlad I. Morariu, Xintong Han, Mingfei Gao, Ching-Yung Lin, Larry S. Davis
+
+**Gist**:  Conclusion: Neuron importance scores in the layer of interest (usually the last layer before classification) are obtained by feature ranking. We formulated the network pruning problem as a binary integer program and obtained a closed-form solution to a relaxed version of the formulation. We presented the Neuron Importance Score Propagation al- gorithm that efficiently propagates the importance to every neuron in the whole network. The network is pruned by re- moving less important neurons and fine-tuned to retain its predicative capability.
+
+<img src="images/nisp_method.png" alt="isolated" width="300"/>
+
+**Results**: 
+<img src="images/nisp_res.png" alt="isolated" width="400"/>
+
+**Tags**: structrured pruning, with fine-tuning, iterative pruning, AlexNet, GoogLeNet, ResNet, ImageNet, CIFAR-10, 
+
+
+### 48. “Learning-Compression” Algorithms for Neural Net Pruning
+
+**Year**: 2018
+
+**Authors**: Miguel A. Carreira-Perpinan, Yerlan Idelbayev
+
+**Gist**:  From Abstract: We formulate pruning as an optimization problem of find- ing the weights that minimize the loss while satisfying a pruning cost condition. We give a generic algorithm to solve this which alternates “learning” steps that optimize a regularized, data-dependent loss and “compression” steps that mark weights for pruning in a data-independent way. Magnitude thresholding arises naturally in the compression step, but unlike existing magnitude pruning approaches, our algorithm explores subsets of weights rather than committing irrevocably to a specific subset from the beginning.
+
+
+<img src="images/learn_compress_method.png" alt="isolated" width="300"/>
+
+**Results**: 
+
+<img src="images/learn_compress_res.png" alt="isolated" width="400"/>
+
+**Tags**: Unstructured pruning, iterative pruning, LeNet-300, LeNet-5, MNIST, ResNet-32, ResNet-56, ResNet-110, CIFAR-10.
+
+### 49. Pruning neural networks for inductive conformal prediction
+
+**Year**: 2022
+
+**Authors**: Xindi Zhao, Anthony Bellotti
+
+**Gist**: The authors propose new pruning method based on the conformal prediction efficiency. They find that the pruned network can maintain, or indeed improve, the efficiency of the conformal predictors up to a particular pruning ratio and this pruning ratio varies with different architectures and data sets.
+
+
+**Results**: 
+
+<img src="images/conformal_res.png" alt="isolated" width="400"/>
+
+**Tags**: Unstructured pruning, Covtype, MNIST, FashionMNIST, CNN.
+
+
+### 50. PRUNING DEEP NEURAL NETWORKS FROM A SPARSITY PERSPECTIVE
+
+**Year**: 2023
+
+**Authors**: Enmao Diao and G. Wang and Jiawei Zhan and Yuhong Yang and Jie Ding and Vahid Tarokh
+
+**Gist**:  In this work, we propose PQ Index (PQI) to measure the potential compressibility of deep neural networks and use this to develop a Sparsity-informed Adaptive Pruning (SAP) algorithm. Our extensive experiments corroborate the hypothesis that for a generic pruning procedure, PQI decreases first when a large model is being effectively regularized and then increases when its compressibility reaches a limit that appears to correspond to the beginning of underfitting. 
+
+<img src="images/sparsity_measure_method.png" alt="isolated" width="300"/>
+
+**Results**: 
+
+<img src="images/sparsity_measure_res.png" alt="isolated" width="400"/>
+
+**Tags**: FashionMNIST, CIFAR-10, CIFAR-100, TinyImageNet, MLP, CNN, ResNet-18, ResNet-50, Wide ResNet, unstructured pruning.
+
+
+### 51. A Theoretical Understanding of Neural Network Compression from Sparse Linear Approximation
+
+**Year**: 2022
+
+**Authors**: Wenjing Yang and G. Wang and Enmao Diao and Vahid Tarokh and Jie Ding and Yuhong Yang
+
+**Gist**:  In this work, we propose to use the sparsity-sensitive ℓq-norm (0 < q < 1) to characterize compressibility and provide a relationship between soft sparsity of the weights in the network and the degree of compression with a controlled accuracy degradation bound. We also develop adaptive algorithms for pruning each neuron in the network informed by our theory. 
+
+Sparsity index:
+$$SI_q(w) = \frac{||w||_1}{||w||_q}$$
+
+**Results**: 
+
+<img src="images/soft_sparsity_res.png" alt="isolated" width="400"/>
+
+**Tags**: Theoretical upper bound, MLP, California Housing, one-shot pruning, structured pruing, neron pruning. 
+
+
+### 52. Pruning Neural Networks with Supermasks
+
+**Year**: 2021
+
+**Authors**: Vincent Rolfs, Matthias Kerzel and Stefan Wermter
+
+**Gist**:  
+We present a methodology for pruning based on the Lot- tery Ticket hypothesis and Supermasks. Our method determined the threshold for selecting neurons to be part of a pruned Lottery Ticket network by evaluating different Supermasks. By using Supermasks, the network alleviates the need for additional training time for each evaluated subnetwork.
+
+<img src="images/supermasks_method.png" alt="isolated" width="300"/>
+
+**Results**: 
+
+<img src="images/supermasks_res.png" alt="isolated" width="400"/>
+
+**Tags**: Unstructured pruning, MNIST, MLP, with fine-tuning.
+
+### 53. Model Preserving Compression for Neural Networks
+
+**Year**: 2022
+
+**Authors**: Jerry Chee, Megan Renz, Anil Damle, Christopher De Sa
+
+**Gist**: OpenReview: This paper proposes a pruning method that uses interpolative decomposition of matrices to prune neurons/channels of a model. Generalization bound for the pruned model is provided for the two-layer network case. 
+
+
+**Results**: 
+
+<img src="images/interpol_decomp_res.png" alt="isolated" width="400"/>
+
+**Tags**: VGG-16, CIFAR-10, ImageNet, without fine-tuning, with fine-tuning, iterative pruning
+
+
+### 54. Workload-Balanced Pruning for Sparse Spiking Neural Networks
+
+**Year**: 2023
+
+**Authors**: Ruokai Yin and Youngeun Kim and Yuhang Li and Abhishek Moitra and Nitin Vijay Satpute and Anna Hambitzer and Priyadarshini Panda
+
+**Gist**:  In this work, we propose u-Ticket, a utilization-aware LTH-based pruning method that solves the workload imbalance problem in SNNs. Unlike prior works, u-Ticket recovers the utilization during pruning, thus avoiding additional hardware to balance the workloads during deployment. Additionally, at iso-accuracy, u-Ticket improves PE utilization by up to 100% compared to the standard LTH-based pruning method while maintaining filter sparsity of 98%.
+
+<img src="images/workload_balanced_snn_method.png" alt="isolated" width="300"/>
+
+**Results**: 
+
+<img src="images/workload_balanced_snn_res.png" alt="isolated" width="300"/>
+
+**Tags**: Spiking Neural Networks (SNN), unstructured pruning, lottery ticket hyposesys, workload balance, CIFAR-10, Fashion MNIST, CIFAR-100, SVHN, LTH method, ResNet-19, VGG-16
 
 ### 
+
 **Year**: 
 
 **Authors**: 
@@ -765,23 +970,24 @@ Pruned models are functionally similar to their uncompressed counterparts, but p
 
 **Tags**: 
 
+### 
+
+**Year**: 
+
+**Authors**: 
+
+**Gist**:  
+
+
+**Results**: 
+
+<img src="images/movement_res.png" alt="isolated" width="400"/>
+
+**Tags**: 
 
 - Tocrh Pruning https://github.com/VainF/Torch-Pruning?tab=readme-ov-file
-- Diff-Pruning: Structural Pruning for Diffusion Models https://github.com/VainF/Diff-Pruning?tab=readme-ov-file
-- LLM-Pruner: On the Structural Pruning of Large Language Models
-- SlimSlam https://github.com/czg1225/SlimSAM?tab=readme-ov-file
-- DeepCache: Accelerating Diffusion Models for Free https://github.com/horseee/DeepCache
-- Sanity Checking pruning https://github.com/JingtongSu/sanity-checking-pruning
-- https://www.semanticscholar.org/reader/ee53c9480132fc0d09b1192226cb2c460462fd6d
-- NISP https://arxiv.org/pdf/1711.05908.pdf
-- Google https://arxiv.org/pdf/1803.03635.pdf
-- LC compression https://github.com/UCMerced-ML/LC-model-compression?tab=readme-ov-file
-- https://faculty.ucmerced.edu/mcarreira-perpinan/research/LC-model-compression.html
 - what is a state of the art https://arxiv.org/pdf/2003.03033.pdf
 
-## Elicit state of the art 
-
-- "Understanding Robustness Lottery": A Comparative Visual Analysis of Neural Network Pruning Approaches https://www.semanticscholar.org/paper/%22Understanding-Robustness-Lottery%22%3A-A-Comparative-Li-Liu/95cb0e5e14679189209d489f8f20145dbec10a2a
 - https://arxiv.org/abs/2301.00774
 - **To read one more time: Provable Benefits of Overparameterization in Model Compression: From Double Descent to *Pruning* *Neural* *Networks***
 - Read one more time: Rethinking the smaller-norm-less-informative assumption in channel pruning of convolutional layers
